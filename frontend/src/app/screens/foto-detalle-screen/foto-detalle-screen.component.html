@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <h3 class="text-center my-5">{{foto.titulo}}</h3>
+        <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+            <img src={{fotoFoto}} alt={{foto.titulo}} class="imgClase">
+        </div>
+        <small>{{foto.fecha}}</small>
+        <p>{{foto.descripcion}}</p>
+    </div>
+    <hr>
+    <div class="row" *ngIf="artista">
+        <div class="text-center">
+            <button (click)="eliminar()"  class="btn btn-primary">Eliminar Imagen</button>
+        </div>
+    </div>
+</div>

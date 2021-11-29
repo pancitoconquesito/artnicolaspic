@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <h3 class="text-center my-5">Configurar Cuenta</h3>
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 mb-5">
+
+            <img class="rounded-circle img-tam"
+                src="../../../assets/configuracion.jpg" alt="nicolas login" class="img-tam rounded-circle">
+        </div>
+        <div class="col-lg-8 offset-lg-2">
+            <form [formGroup]="formulario"
+            *ngIf="!formularioTerminado"
+        (ngSubmit)="validar()"
+            novalidate>
+                <!-- nombre -->
+                <div class="mb-4">
+                    <input type="text" class="form-control" formControlName="nombre"
+                    placeholder="Nombre (entre 3 y 100 caracteres)">
+                    <div *ngIf="formulario.controls['nombre'].invalid && (formulario.controls['nombre'].touched || formulario.controls['nombre'].dirty)" 
+                    class="alert alert-danger">
+                        <div *ngIf="formulario.controls['nombre'].hasError('required')">Campo es obligatorio</div>
+                        <div *ngIf="formulario.controls['nombre'].hasError('minlength') || formulario.controls['nombre'].hasError('maxlength')">Debe contener entre 3 y 100 caracteres</div>
+                    </div>
+                </div>
+                <!-- email -->
+                <div class="mb-4">
+                    <input type="text" class="form-control" formControlName="email"
+                    placeholder="Email (maximo 100 caracteres)" readonly>
+                </div>
+                <!-- password -->
+                <div class="mb-4">
+                    <input type="text" class="form-control" formControlName="clave"
+                    placeholder="Contraseña (entre 3 y 100 caracteres)">
+                    <div *ngIf="formulario.controls['clave'].invalid && (formulario.controls['clave'].touched || formulario.controls['clave'].dirty)" 
+                    class="alert alert-danger">
+                        <div *ngIf="formulario.controls['clave'].hasError('required')">Campo es obligatorio</div>
+                        <div *ngIf="formulario.controls['clave'].hasError('minlength') || formulario.controls['nombre'].hasError('maxlength')">Debe contener entre 3 y 100 caracteres</div>
+                    </div>
+                </div>
+        
+                <!-- biografia -->
+                <div class="mb-4">
+                    <div class="form-group">
+                        <label for="biografia">Biografia (entre 10 y 1000 caracteres)</label>
+                        <textarea class="form-control" id="biografia" rows="3" formControlName="biografia"></textarea>
+                        
+                        <div *ngIf="formulario.controls['biografia'].invalid && (formulario.controls['biografia'].touched || formulario.controls['biografia'].dirty)" 
+                        class="alert alert-danger">
+                            <div *ngIf="formulario.controls['biografia'].hasError('required')">Campo es obligatorio</div>
+                            <div *ngIf="formulario.controls['biografia'].hasError('minlength') || formulario.controls['biografia'].hasError('maxlength')">Debe contener entre 10 y 500 caracteres</div>
+                        </div>
+                    </div>
+                </div>
+        
+        
+                <!-- boton login -->
+                <div class="text-center">
+                    <button [disabled]="!formulario.valid" type="submit" class="btn btn-primary">Actualizar Datos</button>
+                </div>
+            </form>
+
+
+            <div class="alert alert-success" role="alert" *ngIf="formularioTerminado">
+                Datos Actualizados!
+            </div>
+
+            
+        </div>
+    </div>
+</div>

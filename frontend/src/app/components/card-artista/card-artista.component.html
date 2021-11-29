@@ -1,0 +1,17 @@
+<div class="profile-card-6" (click)="verPerfilArtista()">
+    <img src="../../../assets/artista.jpg" class="img img-responsive">
+    <div class="profile-name">Artista
+        <br>{{artista.nombre}}</div>
+    <div class="profile-position">{{artista.biografia |slice:0:10}}</div>
+    <div class="profile-overview">
+        <div class="profile-overview">
+            <div class="row text-center">
+
+                <div class="col-xs-4">
+                    <p><i class="fas fa-heart"></i></p>
+                    <h3>{{totalCorazones}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

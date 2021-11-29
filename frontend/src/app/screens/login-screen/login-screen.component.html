@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-4 offset-4  text-center">
+            <img class="rounded-circle img-tam"
+            src="../../../assets/nicolascage_1.jpg" alt="nicolas login"
+            *ngIf="!registro">
+            <img class="rounded-circle img-tam"
+            src="../../../assets/nicolascage_2.jpg" alt="nicolas register"
+            *ngIf="registro">
+            <h1>ArtNicolas Pic</h1>
+        </div>
+    </div>
+    <div class="row " *ngIf="!registro">
+        <h3 class="text-center my-5 py-2">Login</h3>
+        <app-formulario-login></app-formulario-login>
+        <!-- </div> -->
+
+        <div class="col-lg-8 offset-lg-2">
+            <hr class="my-5">
+            <div class="text-center mb-3">
+                <small >Puedes registrarte aqui</small>
+            </div>
+            <div class="text-center">
+                <button (click)="registrarse()" class="btn btn-secondary">Ir a Registrarse</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row " *ngIf="registro">
+        <h3 class="text-center my-5 py-2">Registrate</h3>
+        <app-formulario-registro></app-formulario-registro>
+        <div class="col-lg-8 offset-lg-2">
+            <hr class="my-5">
+            <div class="text-center mb-3">
+                <small >Volver a Login</small>
+            </div>
+            <div class="text-center">
+                <button (click)="volverALogin()" class="btn btn-secondary">Volver a Login</button>
+            </div>
+        </div>
+    </div>
+</div>

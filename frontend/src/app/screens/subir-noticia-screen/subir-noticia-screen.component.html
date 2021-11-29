@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+
+            <img class="rounded-circle img-tam"
+                src="../../../assets/crearNoticia.jpg" alt="nicolas login" class="img-tam rounded-circle">
+        </div>
+
+
+        <h3 class="my-5 text-center">Crear Noticia</h3>
+        <!-- formulario -->
+
+        <div class="col-lg-8 offset-lg-2">
+            <form [formGroup]="formulario"
+            *ngIf="!noticiaCreada"
+        (ngSubmit)="validar()"
+            novalidate>
+
+
+                <!-- img -->
+                <div class="mb-4">
+                    <input type="text" class="form-control" formControlName="img"
+                    placeholder="Url imagen">
+                    <div *ngIf="formulario.controls['img'].invalid && (formulario.controls['img'].touched || formulario.controls['img'].dirty)" 
+                    class="alert alert-danger">
+                        <div *ngIf="formulario.controls['img'].hasError('required')">Campo es obligatorio</div>
+                        <div *ngIf="formulario.controls['img'].hasError('maxlength')">Debe contener maximo 1000 caracteres</div>
+                    </div>
+                </div>
+
+                <!-- titulo -->
+                <div class="mb-4">
+                    <input type="text" class="form-control" formControlName="titulo"
+                    placeholder="Titulo (entre 3 y 100 caracteres)">
+                    <div *ngIf="formulario.controls['titulo'].invalid && (formulario.controls['titulo'].touched || formulario.controls['titulo'].dirty)" 
+                    class="alert alert-danger">
+                        <div *ngIf="formulario.controls['titulo'].hasError('required')">Campo es obligatorio</div>
+                        <div *ngIf="formulario.controls['titulo'].hasError('minlength') || formulario.controls['titulo'].hasError('maxlength')">Debe contener entre 3 y 100 caracteres</div>
+                    </div>
+                </div>
+
+
+            
+                <!-- contenido -->
+                <div class="mb-4">
+                    <div class="form-group">
+                        <label for="contenido">Descripción (entre 10 y 1000 caracteres)</label>
+                        <textarea class="form-control" id="contenido" rows="3" formControlName="contenido"></textarea>
+                        
+                        <div *ngIf="formulario.controls['contenido'].invalid && (formulario.controls['contenido'].touched || formulario.controls['contenido'].dirty)" 
+                        class="alert alert-danger">
+                            <div *ngIf="formulario.controls['contenido'].hasError('required')">Campo es obligatorio</div>
+                            <div *ngIf="formulario.controls['contenido'].hasError('minlength') || formulario.controls['contenido'].hasError('maxlength')">Debe contener entre 10 y 1000 caracteres</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- boton login -->
+                <div class="text-center">
+                    <button [disabled]="!formulario.valid" type="submit" class="btn btn-primary">Publicar Noticia</button>
+                </div>
+            </form>
+
+            <!-- aviso -->
+            
+            <div *ngIf="noticiaCreada">
+                <div class="alert alert-success" role="alert">
+                    Noticia creada exitosamente!
+                  </div>
+                <div class="text-center">
+                    <button (click)="addOtraNoticia()" type="button"  class="btn btn-primary">Publicar Otra Noticia Más</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

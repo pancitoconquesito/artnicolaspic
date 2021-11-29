@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row my-5">
+        <h3 class="text-center my-5">{{artistaActual.nombre}}</h3>
+        <p>{{artistaActual.biografia}}</p>
+    </div>
+    <hr>
+    <div class="row my-5">
+        <h3 class="text-center my-5">Mi Galeria</h3>
+        <!-- for de galeria -->
+        <div *ngFor="let imagenGaleria of galeria" class="col-12 col-md-6 col-lg-4 rounded">
+            <app-card-imagen-galeria [imagenActual]=imagenGaleria></app-card-imagen-galeria>
+        </div>
+    </div>
+</div>
+
+
+	

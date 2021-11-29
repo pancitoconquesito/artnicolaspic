@@ -1,0 +1,27 @@
+
+
+<article class="postcard light yellow">
+<!-- boton -->
+	<a class="postcard__img_link" >
+		<img class="postcard__img" src={{imagenNoticia}} alt={{noticia.titulo}} />
+	</a>
+	<div class="postcard__text t-dark">
+		<h1 class="postcard__title yellow ms-5" (click)="verDetalleNoticia()" role="button"><a >{{noticia.titulo}}</a></h1>
+		<div class="postcard__subtitle small ms-5">
+			<time datetime="2020-05-25 12:00:00">
+				<i class="fas fa-calendar-alt mr-4"></i> {{noticia.fecha}}
+			</time>
+		</div>
+		<div class="postcard__bar ms-5"></div>
+		<div class="postcard__preview-txt ms-5">{{noticia.contenido}}</div>
+		<ul class="postcard__tagbox">
+			<li class="tag__item"><i class="fas fa-clock mr-2"></i> {{noticia.fecha}}</li>
+			<li class="tag__item play yellow">
+	<!-- boton -->
+	<!-- 11 -->
+				<a (click)="verDetalleNoticia()" role="button"><i class="fas fa-play mr-2"></i>Ver noticia</a>
+			</li>
+		</ul>
+	</div>
+</article>
+

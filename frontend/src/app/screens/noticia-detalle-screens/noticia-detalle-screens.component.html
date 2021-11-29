@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <h3 class="text-center my-5">{{noticiaActual.titulo}}</h3>
+        <div class="col-sm-8 offset-sm-2 col-lg-4 offset-lg-4 mb-5">
+            <img src={{imgNoticia}} alt={{noticiaActual.titulo}} class="img-noticia img rounded">
+        </div>
+        <small>Fecha : {{noticiaActual.fecha}}</small>
+        <p>{{noticiaActual.contenido}}</p>
+    </div>
+    <hr>
+    <div class="row">
+        <p>Publicado por : {{artistaPublicador.nombre}}</p>
+        <div class="col-4">
+            <button (click)="VerArtista()" type="button" class="btn btn-secondary" >Ver artista publicador</button>
+        </div>
+    </div>
+</div>

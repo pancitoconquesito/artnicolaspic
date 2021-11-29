@@ -1,0 +1,73 @@
+  drop  table if exists artista cascade;
+create table artista(
+	_id serial not null,
+	
+	nombre VARCHAR(100) not null,
+	email VARCHAR(100) not null,
+	clave VARCHAR(100) not null,
+	biografia VARCHAR(1000) not null,
+	
+	constraint pk_artista primary key (_id),
+	constraint uq_artista_email unique (email)
+);
+
+drop  table if exists imagen cascade;
+create table imagen(
+	_id serial not null,
+	dir varchar(1000) not null,
+	constraint pk_imagen primary key (_id)
+);
+
+drop  table if exists noticia cascade;
+create table noticia(
+	_id serial not null,
+	
+	img integer not null,
+	titulo varchar(100) not null,
+	contenido varchar(1000) not null,
+	fecha varchar( 500)not null,
+	fk_artista integer not null,
+	
+	constraint pk_noticia primary key (_id),
+	constraint fk_noticia_artista foreign key (fk_artista)
+	references artista(_id)
+	on update cascade
+	on delete cascade	
+);
+
+drop  table if exists img_galeria_artista cascade;
+create table img_galeria_artista(
+	_id serial not null,
+	
+	titulo varchar(100) not null,
+	fecha varchar( 500)not null,
+	fk_artista integer not null,
+	img integer not null,
+	descripcion varchar(1000) not null,
+	
+	constraint pk_img_galeria_artista primary key (_id),
+	constraint fk_galeria_artista foreign key (fk_artista)
+	references artista(_id)
+	on update cascade
+	on delete cascade,
+	constraint fk_galeria_img foreign key (img)
+	references imagen(_id)
+	on update cascade
+	on delete cascade
+);
+
+
+insert into "artista" (nombre, email, clave, biografia)
+values ('pepito', 'pepito@gmail.com', '123', 'mibiografia comienza cuando era niño y etcettect');
+
+insert into imagen (dir) 
+values('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73o1cA-NLDZkDj1HIE1F6GuvufPlTC4Jz8SijG5XmFWzUTifuz-8G1yhKVPASQEXDL4A&usqp=CAU');
+insert into imagen (dir) 
+values('https://www.muyinteresante.com.mx/wp-content/uploads/2018/05/httpstved-prod.adobecqms.netcontentdameditorialTelevisamexicomuyinteresantemxciencia151021nicolas-cage.imgo_.jpg');
+
+
+insert into noticia (img, titulo, contenido, fecha, fk_artista)
+values(1, 'titulo de noticia', 'contenido lorem lroem lorem', '01-01-2000', 1);
+
+insert into img_galeria_artista (titulo, fecha, fk_artista, img, descripcion)
+values ('titulo img', '10-10-1999', 1, 2, 'descripcion de la imagen, esta hecha con x program y inspirado en x cosa etcetecte');

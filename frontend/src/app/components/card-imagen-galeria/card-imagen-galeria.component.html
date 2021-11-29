@@ -1,0 +1,15 @@
+
+<div class="card" (click)="verDetalle()" role="button">
+    <div class="image">
+        <img src={{imagenImagen}} alt={{imagenActual.titulo}}/>
+    </div>
+    <div class="card-inner">
+        <div class="header">
+            <h2>{{imagenActual.titulo}}</h2>
+            <small>{{imagenActual.fecha}}</small>
+        </div>
+        <div class="content">
+            <p>{{imagenActual.descripcion | slice:0:10}}</p>
+        </div>
+    </div>
+</div>
