@@ -15,7 +15,6 @@
           
           <a routerLink="./artistas" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Artistas</a>
 
-          <a routerLink="./acerca" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Quienes Somos</a>
           
           <!-- crear noticia, mi galeria(dentro subir foto) -->
           <a *ngIf="login" routerLink="./migaleria" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Mi Galeria</a>
@@ -23,8 +22,9 @@
           <a *ngIf="login" routerLink="./subirnoticia" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Mi Subir Noticia</a>
           <a *ngIf="login" routerLink="./configurar" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Configurar Cuenta</a>
           <a *ngIf="login" (click)="logOut()" role="button" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Log out</a>
-
           
+          
+          <a routerLink="./acerca" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Quienes Somos</a>
 
           <a *ngIf="!login" routerLink="./login" [routerLinkActive]="'active'"class="rounded border bg-white px-4 mx-3 nav-link" >Login</a>
         </div>
