@@ -58,7 +58,7 @@ create table img_galeria_artista(
 
 
 insert into "artista" (nombre, email, clave, biografia)
-values ('pepito', 'pepito@gmail.com', '123', 'mibiografia comienza cuando era niño y etcettect');
+values ('pepito', 'pepito@gmail.com', '123', 'mibiografia comienza cuando era niña y etcettect');
 
 insert into imagen (dir) 
 values('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR73o1cA-NLDZkDj1HIE1F6GuvufPlTC4Jz8SijG5XmFWzUTifuz-8G1yhKVPASQEXDL4A&usqp=CAU');
